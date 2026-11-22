@@ -9,9 +9,9 @@
 <section id="portal" class="hidden"><div class="panel"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><div><h2 id="memberName">Member</h2><p class="muted">तपाईंको निजी खाता</p></div><button class="btn secondary" id="logoutBtn">Logout</button></div><div id="memberData"></div></div></section>
 </main>
 <script>
-const PROJECT_URL="https://atrxdrxucpaidtamfrmz.supabase.co";
-const PUBLISHABLE_KEY="__SET_PUBLISHABLE_KEY_IN_MEMBER_PAGE__";
-const client=window.supabase.createClient(PROJECT_URL,PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true}});
+const savedConfig=JSON.parse(localStorage.getItem('sabkaHissaSupabaseConfigV1')||'{}');
+if(!savedConfig.url||!savedConfig.key){document.getElementById('loginMsg').textContent='पहिले Admin App मा Supabase Project URL र Publishable Key save हुनुपर्छ।';}
+const client=window.supabase.createClient(savedConfig.url||'https://atrxdrxucpaidtamfrmz.supabase.co',savedConfig.key||'',{auth:{persistSession:true,autoRefreshToken:true}});
 const $=id=>document.getElementById(id);
 function showError(msg){$('loginMsg').textContent=msg;$('loginMsg').className='error'}
 function esc(v){return String(v??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
