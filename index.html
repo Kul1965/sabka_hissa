@@ -139,6 +139,17 @@ th{background:#173b2c;color:#a9d9bd}td{border-color:#315441;color:#e3f1e7}
 .sath-sign-text .sath-hand{flex:0 0 auto!important;font-size:clamp(25px,7vw,52px)!important;line-height:1!important;filter:drop-shadow(0 2px 0 #7c4b00) drop-shadow(0 0 6px #00f878)!important}
 @media(max-width:520px){.sath-sign-text{min-height:52px!important;padding:4px 5px 9px!important;gap:2px!important;border-radius:9px!important}.sath-sign-text .sath-words{font-size:clamp(17px,5.9vw,29px)!important;-webkit-text-stroke:.65px #704400!important}.sath-sign-text .sath-hand{font-size:clamp(22px,7vw,34px)!important}}
 
+
+/* Compact, slim header without changing the signboard style */
+.head{padding:3px 8px 4px!important}
+.brand-sign-only .brand-title{margin:0!important;padding:0!important}
+.sath-sign-text{min-height:34px!important;padding:0 2px 4px!important;line-height:1!important}
+.brand-meta{margin:0!important;gap:4px!important}
+.brand-meta .tag,.brand-meta #date{padding:0 3px!important;line-height:1.05!important}
+.head-tools{margin-top:3px!important;gap:5px!important}
+.head-bottom{margin-top:3px!important}
+@media(max-width:520px){.head{padding:2px 7px 3px!important}.sath-sign-text{min-height:29px!important;padding:0 1px 3px!important}.brand-meta{margin:0!important}.head-tools{margin-top:2px!important}.head-bottom{margin-top:2px!important}}
+
 </style></head><body>
 <header class="head"><div class="brand brand-sign-only"><div class="brand-copy"><div class="brand-title"><div class="sath-sign-text" role="img" aria-label="हाम्रो साथ तपाईंको हात"><span class="sath-words">हाम्रो साथ</span><span class="sath-hand">🤝</span><span class="sath-words">तपाईंको हात</span></div></div><div class="brand-meta"><span class="tag">Apno Hissedari, Apno Hissa</span><span class="muted" id="date"></span></div></div></div><div class="head-tools"><div class="admin-chip"><div class="admin-avatar" id="adminAvatar">SH</div><span><b class="admin-label">ADMIN:</b> <strong id="adminNameHead">Not Set</strong></span><span class="admin-check">✓</span></div><button class="head-update" id="updateBtn" type="button" onclick="updateApp()">↻ Update</button></div><div class="head-bottom"><div class="cloud-chip cloud-off" id="cloudStatus"><i></i> Cloud OFF</div><button class="top-menu-btn" id="topMenuButton" type="button" aria-expanded="false" aria-controls="moreMenu">☰ Menu ▾</button></div></header>
 <main class="wrap">
