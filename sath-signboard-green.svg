@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 250" role="img" aria-label="हाम्रो साथ तपाईंको हात">
+<defs>
+ <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff8bd"/><stop offset=".28" stop-color="#ffe36a"/><stop offset=".58" stop-color="#f5a900"/><stop offset=".82" stop-color="#ffdf55"/><stop offset="1" stop-color="#a85b00"/></linearGradient>
+ <linearGradient id="green" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b8ff70"/><stop offset=".45" stop-color="#00e65b"/><stop offset="1" stop-color="#007b38"/></linearGradient>
+ <filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="10" result="b"/><feColorMatrix in="b" values="0 0 0 0 0.0 0 0 0 0 1 0 0 0 0 0.2 0 0 0 1 0"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="shadow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feOffset dy="7"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g filter="url(#glow)" fill="none" stroke="url(#green)" stroke-width="5" stroke-linejoin="round">
+ <path d="M18 125 Q35 38 120 45 H1480 Q1565 38 1582 125 Q1565 212 1480 205 H120 Q35 212 18 125Z"/>
+</g>
+<g filter="url(#shadow)" font-family="'Noto Sans Devanagari','Nirmala UI',sans-serif" font-weight="900" text-anchor="middle" fill="url(#gold)" stroke="#754400" stroke-width="3" paint-order="stroke">
+ <text x="390" y="151" font-size="112">हाम्रो साथ</text>
+ <text x="1210" y="151" font-size="112">तपाईंको हात</text>
+</g>
+<g transform="translate(800 124)" filter="url(#glow)">
+ <path d="M-115 18 Q-150 -25 -108 -72 Q-78 -95 -52 -52 M115 18 Q150 -25 108 -72 Q78 -95 52 -52" fill="none" stroke="url(#gold)" stroke-width="12" stroke-linecap="round"/>
+ <path d="M-95 45 Q-55 100 0 105 Q55 100 95 45" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/>
+ <path d="M-60 -18 L-15 -45 Q0 -54 15 -39 L48 -8 Q58 3 46 14 Q35 24 23 13 L-4 -9 L-30 18 Q-42 30 -55 18 L-80 -4Z" fill="url(#gold)" stroke="#754400" stroke-width="7" stroke-linejoin="round"/>
+ <path d="M-38 -30 L-5 -6 Q8 5 18 -6 L39 -26" fill="none" stroke="#fff1a0" stroke-width="8" stroke-linecap="round"/>
+ <path d="M-82 -44 L-55 -65 L-33 -42 L-57 -20Z M82 -44 L55 -65 L33 -42 L57 -20Z" fill="#147ad6" stroke="#b8f6ff" stroke-width="5"/>
+ <path d="M-18 80 L0 61 L18 80 L0 99Z" fill="url(#gold)" stroke="#fff1a0" stroke-width="4"/>
+</g></svg>
