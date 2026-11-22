@@ -112,10 +112,13 @@ th{background:#173b2c;color:#a9d9bd}td{border-color:#315441;color:#e3f1e7}
 .brand-sign-only .brand-title .sath-sign{display:block!important;width:100%!important;max-width:100%!important;height:auto!important;max-height:52px!important;min-width:0!important;object-fit:contain!important;margin:0 auto!important;border-radius:7px!important}
 @media(max-width:520px){.brand-sign-only .brand-title .sath-sign{width:100%!important;height:auto!important;max-height:46px!important;object-fit:contain!important}.brand-sign-only .tag{margin-top:3px!important}}
 
-/* Keep Apno Hissedari tagline and live clock/date on one compact line */
-.brand-sign-only .brand-copy{display:flex!important;flex-direction:column!important;align-items:center!important}
-.brand-sign-only .tag{display:inline-block!important;width:auto!important;max-width:100%!important;white-space:nowrap!important;text-align:center!important;margin:2px auto 0!important;font-size:clamp(10px,2.7vw,14px)!important;line-height:1.15!important}
-.brand-sign-only #date{display:block!important;width:100%!important;white-space:nowrap!important;text-align:center!important;font-size:clamp(9px,2.3vw,12px)!important;line-height:1.1!important;margin:1px auto 0!important}
+/* Two separate compact header cards: tagline left, live clock/date right */
+.brand-sign-only .brand-copy{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:center!important;column-gap:8px!important;width:100%!important}
+.brand-sign-only .brand-title{grid-column:1/-1!important}
+.brand-sign-only .tag,.brand-sign-only #date{display:flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;min-width:0!important;min-height:30px!important;padding:5px 8px!important;margin:4px 0 0!important;border:1px solid rgba(179,238,202,.45)!important;border-radius:9px!important;background:rgba(5,50,35,.38)!important;white-space:nowrap!important;text-align:center!important;line-height:1.15!important;overflow:hidden!important}
+.brand-sign-only .tag{font-size:clamp(9px,2.5vw,13px)!important}
+.brand-sign-only #date{font-size:clamp(8px,2.15vw,11px)!important}
+@media(max-width:380px){.brand-sign-only .brand-copy{column-gap:5px!important}.brand-sign-only .tag,.brand-sign-only #date{padding:4px 5px!important;font-size:8px!important}}
 </style></head><body>
 <header class="head"><div class="brand brand-sign-only"><div class="brand-copy"><div class="brand-title"><img class="sath-sign" src="./sath-signboard-green.svg" alt="हाम्रो साथ तपाईंको हात"></div><div class="tag">Apno Hissedari, Apno Hissa</div><div class="muted" id="date"></div></div></div><div class="head-tools"><div class="admin-chip"><div class="admin-avatar" id="adminAvatar">SH</div><span><b class="admin-label">ADMIN:</b> <strong id="adminNameHead">Not Set</strong></span><span class="admin-check">✓</span></div><button class="head-update" id="updateBtn" type="button" onclick="updateApp()">↻ Update</button></div><div class="head-bottom"><div class="cloud-chip cloud-off" id="cloudStatus"><i></i> Cloud OFF</div><button class="top-menu-btn" id="topMenuButton" type="button" aria-expanded="false" aria-controls="moreMenu">☰ Menu ▾</button></div></header>
 <main class="wrap">
