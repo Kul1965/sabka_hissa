@@ -35,11 +35,14 @@ Deno.serve(async (req) => {
     const username = String(body.username || "").trim().toLowerCase();
     const email = username + "@members.sabka-hissa.invalid";
     const password = String(body.password || "");
-    if (!memberId || !memberName || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || password.length < 8) {
-      return respond({ error: "Member, valid email and password of at least 8 characters are required" }, 400);
+    if (!memberId || !memberName || !/^[a-z0-9][a-z0-9._-]{2,29}$/.test(username) || password.length < 8) {
+      return respond({ error: "Member, valid username (3-30 characters) and password of at least 8 characters are required" }, 400);
     }
 
     const admin = createClient(url, serviceKey, { auth: { persistSession: false, autoRefreshToken: false } });
+    const { data: existing, error: existingError } = await admin.from("member_login_accounts").select("member_id").ilike("username", username).maybeSingle();
+    if (existingError) return respond({ error: existingError.message }, 400);
+    if (existing) return respond({ error: "This username is already in use" }, 409);
     const { data: created, error: createError } = await admin.auth.admin.createUser({
       email, password, email_confirm: true, user_metadata: { role: "member", member_id: memberId, member_name: memberName, username }
     });
