@@ -76,6 +76,24 @@ th{background:#173b2c;color:#a9d9bd}td{border-color:#315441;color:#e3f1e7}
 .more-menu:not(.hide){display:block!important;visibility:visible!important}
 .more-menu button{display:block!important;width:100%!important;color:#e5f6eb!important;background:transparent!important;text-align:left!important;padding:9px 10px!important;font-size:13px!important;border-bottom:1px solid #315441!important}
 .top-menu-btn{position:relative;z-index:100000;cursor:pointer}
+
+/* Slim compact header refinement */
+.head{padding:7px 12px 8px!important}
+.brand{gap:7px!important}
+.app-mark{width:38px!important;height:38px!important;flex-basis:38px!important;border-radius:11px!important;font-size:20px!important}
+.brand-title h1{font-size:clamp(18px,4.8vw,24px)!important;line-height:1!important}
+.tag{font-size:10px!important;margin-top:2px!important;line-height:1.1!important}
+#date{font-size:10px!important;line-height:1.1!important;margin-top:2px!important}
+.head-tools{margin-top:6px!important;gap:6px!important}
+.admin-chip{min-height:38px!important;padding:4px 7px!important;border-radius:11px!important;gap:5px!important}
+.admin-avatar{width:28px!important;height:28px!important;flex-basis:28px!important}
+.admin-label{font-size:8px!important}.admin-chip strong,.admin-chip span:nth-child(2){font-size:10px!important}
+.admin-check{font-size:14px!important}
+.head-update{min-height:38px!important;padding:4px 7px!important;font-size:10px!important;border-radius:11px!important}
+.head-bottom{margin-top:5px!important}
+.cloud-chip{margin-top:0!important;padding:4px 8px!important;font-size:9px!important}
+.top-menu-btn{padding:4px 7px!important;font-size:9px!important}
+@media(max-width:520px){.head{padding:6px 9px 7px!important}.app-mark{width:35px!important;height:35px!important;flex-basis:35px!important;font-size:18px!important}.brand{gap:6px!important}.brand-title h1{font-size:19px!important}.tag{font-size:9px!important}.head-tools{margin-top:5px!important}.admin-chip,.head-update{min-height:35px!important}.admin-avatar{width:25px!important;height:25px!important;flex-basis:25px!important}.cloud-chip{padding:3px 7px!important}.head-bottom{margin-top:4px!important}}
 </style></head><body>
 <header class="head"><div class="brand"><div class="app-mark">🤝</div><div class="brand-copy"><div class="brand-title"><h1>SABKA HISSA</h1></div><div class="tag">Apno Hissedari, Apno Hissa</div><div class="muted" id="date"></div></div></div><div class="head-tools"><div class="admin-chip"><div class="admin-avatar" id="adminAvatar">SH</div><span><b class="admin-label">ADMIN:</b> <strong id="adminNameHead">Not Set</strong></span><span class="admin-check">✓</span></div><button class="head-update" id="updateBtn" type="button" onclick="updateApp()">↻ Update</button></div><div class="head-bottom"><div class="cloud-chip cloud-off" id="cloudStatus"><i></i> Cloud OFF</div><button class="top-menu-btn" id="topMenuButton" type="button" aria-expanded="false" aria-controls="moreMenu">☰ Menu ▾</button></div></header>
 <main class="wrap">
