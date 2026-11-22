@@ -40,6 +40,7 @@ create table if not exists public.member_login_accounts (
   member_id text primary key,
   auth_user_id uuid unique not null references auth.users(id) on delete cascade,
   member_name text not null,
+  username text unique,
   login_email text not null unique,
   is_active boolean not null default true,
   created_at timestamptz not null default now(),
@@ -107,3 +108,11 @@ $$;
 drop trigger if exists member_portal_data_updated_at on public.member_portal_data;
 create trigger member_portal_data_updated_at before update on public.member_portal_data
 for each row execute function public.touch_member_portal_updated_at();
+
+
+-- Safe migration for existing installations: keep old records and add username login support.
+alter table public.member_login_accounts
+  add column if not exists username text;
+create unique index if not exists member_login_accounts_username_unique
+  on public.member_login_accounts (lower(username))
+  where username is not null;
