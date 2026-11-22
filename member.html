@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ne"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#062c20"><title>SABKA HISSA · Member Login</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#0b6948,#062d21 48%,#031b14);color:#e7f5eb;font:15px system-ui,Arial}.wrap{max-width:760px;margin:0 auto;padding:24px 14px 50px}.brand{text-align:center;padding:15px;border:1px solid #c9a74e;border-radius:20px;background:#092d22}.brand h1{margin:0;color:#f0d78d;letter-spacing:1px}.brand p{margin:5px 0 0;color:#a9cdb8}.panel{margin-top:16px;padding:18px;border:1px solid #52775f;border-radius:18px;background:linear-gradient(145deg,#153a2c,#0b281e);box-shadow:0 8px 22px #0005}.field{margin:12px 0}.field label{display:block;margin-bottom:6px;color:#c6e5d1;font-weight:700}.field input{width:100%;padding:13px;border-radius:11px;border:1px solid #52775f;background:#061e16;color:#fff;font-size:16px}.btn{padding:11px 16px;border-radius:11px;border:1px solid #c9a74e;background:#0b7650;color:white;font-weight:800}.btn.secondary{background:#173d2e}.muted{color:#9db7aa}.hidden{display:none!important}.stat{padding:12px;border:1px solid #52775f;border-radius:12px;margin:8px 0;background:#0b281e}.stat b{color:#f0d78d}.data{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55}.error{color:#ffaaa0}.success{color:#8de0b7}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head>
+<body><main class="wrap"><header class="brand"><h1>SABKA HISSA</h1><p>Member Secure Portal · सदस्य खाता</p></header>
+<section id="login" class="panel"><h2>Member Login</h2><p class="muted">Admin ले दिएको Login Email र Password प्रयोग गर्नुहोस्।</p><div class="field"><label>Email</label><input id="email" type="email" autocomplete="username"></div><div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password"></div><button class="btn" id="loginBtn">Sign In</button><p id="loginMsg" class="muted"></p></section>
+<section id="portal" class="hidden"><div class="panel"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><div><h2 id="memberName">Member</h2><p class="muted">तपाईंको निजी खाता</p></div><button class="btn secondary" id="logoutBtn">Logout</button></div><div id="memberData"></div></div></section>
+</main>
+<script>
+const PROJECT_URL="https://atrxdrxucpaidtamfrmz.supabase.co";
+const PUBLISHABLE_KEY="__SET_PUBLISHABLE_KEY_IN_MEMBER_PAGE__";
+const client=window.supabase.createClient(PROJECT_URL,PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true}});
+const $=id=>document.getElementById(id);
+function showError(msg){$('loginMsg').textContent=msg;$('loginMsg').className='error'}
+function esc(v){return String(v??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderValue(label,value){return '<div class="stat"><b>'+esc(label)+'</b><div class="data">'+esc(typeof value==='object'?JSON.stringify(value,null,2):value)+'</div></div>'}
+async function loadPortal(user){const {data:link,error:linkError}=await client.from('member_login_accounts').select('member_id,member_name,is_active').eq('auth_user_id',user.id).eq('is_active',true).maybeSingle();if(linkError||!link)throw new Error('यो Login सक्रिय Member खातासँग जोडिएको छैन। Admin लाई सम्पर्क गर्नुहोस्।');const {data,error}=await client.from('member_portal_data').select('member_data').eq('member_id',link.member_id).maybeSingle();if(error||!data)throw new Error('तपाईंको खाता विवरण अहिले उपलब्ध छैन।');$('memberName').textContent=link.member_name;$('memberData').innerHTML=Object.entries(data.member_data||{}).map(([k,v])=>renderValue(k,v)).join('')||'<p class="muted">अहिले कुनै विवरण छैन।</p>';$('login').classList.add('hidden');$('portal').classList.remove('hidden')}
+$('loginBtn').onclick=async()=>{const b=$('loginBtn');b.disabled=true;try{const {data,error}=await client.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});if(error)throw error;await loadPortal(data.user)}catch(e){showError(e.message||'Login असफल भयो।')}finally{b.disabled=false}};
+$('logoutBtn').onclick=async()=>{await client.auth.signOut();$('portal').classList.add('hidden');$('login').classList.remove('hidden');$('password').value=''};
+client.auth.getSession().then(({data})=>{if(data.session)loadPortal(data.session.user).catch(e=>showError(e.message))});
+</script></body></html>
