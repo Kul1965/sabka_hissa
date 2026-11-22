@@ -32,7 +32,8 @@ Deno.serve(async (req) => {
     const body = await req.json();
     const memberId = String(body.member_id || "").trim();
     const memberName = String(body.member_name || "").trim();
-    const email = String(body.email || "").trim().toLowerCase();
+    const username = String(body.username || "").trim().toLowerCase();
+    const email = username + "@members.sabka-hissa.invalid";
     const password = String(body.password || "");
     if (!memberId || !memberName || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || password.length < 8) {
       return respond({ error: "Member, valid email and password of at least 8 characters are required" }, 400);
@@ -40,13 +41,13 @@ Deno.serve(async (req) => {
 
     const admin = createClient(url, serviceKey, { auth: { persistSession: false, autoRefreshToken: false } });
     const { data: created, error: createError } = await admin.auth.admin.createUser({
-      email, password, email_confirm: true, user_metadata: { role: "member", member_id: memberId, member_name: memberName }
+      email, password, email_confirm: true, user_metadata: { role: "member", member_id: memberId, member_name: memberName, username }
     });
     if (createError || !created.user) return respond({ error: createError?.message || "Could not create member auth user" }, 400);
 
     const { error: linkError } = await admin.from("member_login_accounts").insert({
       member_id: memberId, auth_user_id: created.user.id, member_name: memberName,
-      login_email: email, is_active: true, created_by: adminUser.id
+      username, login_email: email, is_active: true, created_by: adminUser.id
     });
     if (linkError) {
       await admin.auth.admin.deleteUser(created.user.id);
@@ -63,7 +64,7 @@ Deno.serve(async (req) => {
       return respond({ error: portalError.message }, 400);
     }
 
-    return respond({ success: true, member_id: memberId, login_email: email });
+    return respond({ success: true, member_id: memberId, username });
   } catch (error) {
     return respond({ error: error instanceof Error ? error.message : "Unexpected server error" }, 500);
   }
