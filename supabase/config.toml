@@ -1,2 +1,5 @@
 [functions.admin-create-member]
 verify_jwt = true
+
+[functions.admin-delete-member]
+verify_jwt = true
