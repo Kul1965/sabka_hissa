@@ -52,6 +52,51 @@
 @media(max-width:440px){#memberChat{height:calc(100dvh - 245px);min-height:390px}.member-chat-bubble{max-width:88%}.member-chat-head h2{font-size:18px}.member-chat-composer{gap:5px;padding:7px}.member-chat-icon{width:39px;height:39px;flex-basis:39px}}
 @media(max-width:440px){.member-hero{padding:17px;gap:12px}.member-avatar{width:72px;height:72px;flex-basis:72px}.member-hero h2{font-size:21px}.member-summary{gap:8px}.member-summary .stat strong{font-size:18px}}
 
+
+/* Member portal visual polish: compact brand, balanced cards, true bottom app bar */
+body{background:radial-gradient(ellipse at 15% 0%,#0b6244 0%,#062d21 43%,#031a13 100%);padding-bottom:env(safe-area-inset-bottom)}
+.member-portal-wrap{max-width:620px;margin:0 auto;padding:10px 12px calc(104px + env(safe-area-inset-bottom))}
+.brand{padding:9px 13px;border-radius:15px;min-height:0;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(115deg,#0c4b35,#08291e);box-shadow:0 4px 14px #0003}
+.brand h1{font-size:19px;line-height:1.1;letter-spacing:.7px}
+.brand p{font-size:10px;margin:3px 0 0}
+.member-hero{padding:14px 13px;gap:11px;border-radius:18px;margin-top:12px;min-height:0;background:linear-gradient(120deg,#0b7650,#0a3c2b)}
+.member-avatar{width:64px;height:64px;flex-basis:64px;border-width:2px}
+.member-hero h2{font-size:20px;line-height:1.15;margin-top:3px}
+.member-hero p{font-size:12px;line-height:1.3;margin-top:4px}
+.member-hero small{font-size:9px;letter-spacing:.8px!important}
+.member-hero .btn{padding:8px 10px;font-size:11px;white-space:nowrap}
+.member-summary{margin-top:11px;gap:8px}
+.member-summary .stat{padding:12px;border-radius:15px;min-height:82px;background:linear-gradient(145deg,#123f2d,#09271d);box-shadow:inset 0 1px #ffffff12,0 4px 10px #0003}
+.member-summary .stat small{font-size:11px;line-height:1.25;color:#b8d4c2}
+.member-summary .stat strong{font-size:19px;line-height:1.15;margin-top:7px;color:#f2d98e;overflow-wrap:anywhere}
+.member-section>.panel{margin-top:11px;padding:14px;border-radius:17px;background:linear-gradient(145deg,#103b2a,#08271d);border-color:#66896a}
+.member-section-title{font-size:16px}
+.member-record{padding:11px;border-radius:13px}
+.member-profile-grid{gap:7px}
+.member-profile-item{padding:9px;border-radius:11px}
+.member-portal-wrap>.brand{margin-bottom:0}
+.member-bottom-nav{left:0;right:0;bottom:0;padding:6px 8px calc(6px + env(safe-area-inset-bottom));min-height:65px;background:rgba(3,25,18,.97);border-top:1px solid #c4a34c;box-shadow:0 -6px 22px #0008;backdrop-filter:blur(14px)}
+.member-bottom-nav button{padding:6px 3px;gap:2px;font-size:10px;min-height:49px}
+.member-bottom-nav button span:first-child{font-size:19px;line-height:1.1}
+#memberChat{height:calc(100dvh - 190px);min-height:350px;margin-top:11px;border-radius:17px;background:linear-gradient(145deg,#103b2a,#06251b);border-color:#b99a49}
+.member-chat-head{padding-bottom:9px}
+.member-chat-head h2{font-size:17px}
+.member-chat-thread{padding:10px 2px}
+.member-chat-bubble{font-size:13px}
+.member-chat-composer{padding:6px;gap:6px}
+.member-chat-composer textarea{font-size:14px}
+@media(max-width:440px){
+ .member-portal-wrap{padding:7px 10px calc(94px + env(safe-area-inset-bottom))}
+ .brand{padding:7px 10px}
+ .brand h1{font-size:17px}
+ .member-hero{padding:12px 11px;gap:9px}
+ .member-avatar{width:58px;height:58px;flex-basis:58px}
+ .member-hero h2{font-size:18px}
+ .member-summary .stat{min-height:76px;padding:10px}
+ .member-summary .stat strong{font-size:17px}
+ .member-bottom-nav{min-height:61px}
+ #memberChat{height:calc(100dvh - 175px);min-height:320px}
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="brand"><h1>SABKA HISSA</h1><p>Member Secure Portal · सदस्य खाता</p></header>
