@@ -321,10 +321,13 @@ body:not(.auth-admin)>.head,body:not(.auth-admin)>.wrap,body:not(.auth-admin)>.b
 .share-chart-wrap{height:185px;position:relative;margin-top:8px}
 .share-chart-wrap svg{width:100%;height:100%;overflow:visible}
 .share-chart-gridline{stroke:#ffffff18;stroke-width:1;stroke-dasharray:4 5}
-.share-chart-line{fill:none;stroke:#40d99a;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px #32db9a88);stroke-dasharray:1200;stroke-dashoffset:1200;animation:shareDraw 1.6s ease forwards}
-.share-chart-area{fill:url(#shareArea);opacity:.45}
-.share-chart-dot{fill:#49e5a4;stroke:#e6d18b;stroke-width:2}
-@keyframes shareDraw{to{stroke-dashoffset:0}}
+.share-chart-line{fill:none;stroke:#40d99a;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px #32db9aaa);stroke-dasharray:18 9;stroke-dashoffset:0;animation:shareFlow 1.15s linear infinite}
+.share-chart-area{fill:url(#shareArea);opacity:.5;animation:shareAreaPulse 2.4s ease-in-out infinite alternate}
+.share-chart-dot{fill:#49e5a4;stroke:#fff0b0;stroke-width:2.5;filter:drop-shadow(0 0 7px #49e5a4);transform-box:fill-box;transform-origin:center;animation:shareDotPulse 1.25s ease-in-out infinite}
+@keyframes shareFlow{to{stroke-dashoffset:-54}}
+@keyframes shareAreaPulse{from{opacity:.28}to{opacity:.62}}
+@keyframes shareDotPulse{0%,100%{r:4;opacity:.78}50%{r:7;opacity:1}}
+@media(prefers-reduced-motion:reduce){.share-chart-line,.share-chart-area,.share-chart-dot{animation:none}}
 .share-market-members{display:grid;gap:8px}
 .share-holder{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;border:1px solid #466f56;border-radius:13px;padding:11px;background:#0b3022}
 .share-holder small{display:block;color:#a9cbb7;font-size:11px;margin-top:3px}
