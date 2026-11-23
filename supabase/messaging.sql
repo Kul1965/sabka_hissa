@@ -16,6 +16,10 @@ create index if not exists member_messages_member_created_idx
 
 alter table public.member_messages enable row level security;
 
+-- Table privileges are required in addition to the row-level security policies below.
+-- RLS policies still restrict which rows authenticated Admins and Members can access.
+grant select, insert, delete on public.member_messages to authenticated;
+
 drop policy if exists "member_messages_admin_read" on public.member_messages;
 create policy "member_messages_admin_read" on public.member_messages
 for select to authenticated
