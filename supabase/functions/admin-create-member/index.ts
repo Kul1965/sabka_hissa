@@ -15,10 +15,16 @@ Deno.serve(async (req) => {
 
   try {
     const url = Deno.env.get("SUPABASE_URL")!;
-    const publishableKeys = JSON.parse(Deno.env.get("SUPABASE_PUBLISHABLE_KEYS") || "{}");
-    const secretKeys = JSON.parse(Deno.env.get("SUPABASE_SECRET_KEYS") || "{}");
-    const anonKey = publishableKeys.default;
-    const serviceKey = secretKeys.default;
+    // Support both current Supabase key bundles and the standard Edge Function
+    // environment variables available in existing projects.
+    const publishableRaw = Deno.env.get("SUPABASE_PUBLISHABLE_KEYS") || "{}";
+    const secretRaw = Deno.env.get("SUPABASE_SECRET_KEYS") || "{}";
+    let publishableKeys: Record<string, string> = {};
+    let secretKeys: Record<string, string> = {};
+    try { publishableKeys = JSON.parse(publishableRaw); } catch { /* use standard env fallback */ }
+    try { secretKeys = JSON.parse(secretRaw); } catch { /* use standard env fallback */ }
+    const anonKey = publishableKeys.default || Deno.env.get("SUPABASE_ANON_KEY") || Deno.env.get("SUPABASE_PUBLISHABLE_KEY");
+    const serviceKey = secretKeys.default || Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || Deno.env.get("SUPABASE_SECRET_KEY");
     if (!anonKey || !serviceKey) return respond({ error: "Supabase publishable/secret API keys are not configured" }, 500);
     const authHeader = req.headers.get("Authorization") || "";
     const token = authHeader.replace(/^Bearer\s+/i, "");
