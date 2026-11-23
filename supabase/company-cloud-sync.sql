@@ -47,6 +47,10 @@ create table if not exists public.member_login_accounts (
   created_by uuid not null references auth.users(id)
 );
 alter table public.member_login_accounts enable row level security;
+-- Edge Functions use the service_role client to create and link member logins.
+-- RLS is bypassed by service_role, but SQL table privileges are still required.
+grant all privileges on table public.member_login_accounts to service_role;
+
 revoke all on public.member_login_accounts from anon;
 grant select, insert, update, delete on public.member_login_accounts to authenticated;
 
@@ -72,6 +76,8 @@ create table if not exists public.member_portal_data (
   constraint member_portal_data_object check (jsonb_typeof(member_data) = 'object')
 );
 alter table public.member_portal_data enable row level security;
+grant all privileges on table public.member_portal_data to service_role;
+
 revoke all on public.member_portal_data from anon;
 grant select, insert, update, delete on public.member_portal_data to authenticated;
 
