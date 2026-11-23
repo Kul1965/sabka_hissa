@@ -266,6 +266,33 @@ body:not(.auth-admin)>.head,body:not(.auth-admin)>.wrap,body:not(.auth-admin)>.b
 .head-install{display:flex;align-items:center;gap:7px;border:1px solid #d5b44f;border-radius:12px;background:#0b6546;color:#fff1b9;padding:9px 12px;font-weight:850;white-space:nowrap}
 .head-install img{width:22px;height:22px;border-radius:6px}
 @media(max-width:520px){.head-install{padding:8px 9px;font-size:12px}}
+
+/* Mobile header: tighter vertical rhythm, clean two-line brand */
+@media(max-width:520px){
+ .head{padding:5px 10px 6px!important}
+ .brand{gap:8px!important;align-items:center!important}
+ .brand-sign-only .app-mark,.brand-sign-only:before{width:38px!important;height:38px!important;flex:0 0 38px!important}
+ .brand-title{display:flex!important;align-items:center!important;justify-content:flex-start!important;min-height:25px!important}
+ .brand-title h1{font-size:19px!important;line-height:1.12!important;letter-spacing:-.35px!important;white-space:normal!important}
+ .brand-meta{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:0!important;line-height:1.1!important}
+ .brand-meta .tag{display:none!important}
+ .brand-meta #date{font-size:10px!important;line-height:1.15!important;margin-top:2px!important;white-space:nowrap!important}
+ .head-tools{grid-template-columns:minmax(0,1fr) minmax(104px,.72fr)!important;gap:7px!important;margin-top:6px!important}
+ .admin-chip{min-height:41px!important;padding:4px 7px!important;border-radius:12px!important;gap:6px!important}
+ .admin-avatar{width:31px!important;height:31px!important;flex-basis:31px!important}
+ .admin-chip span:nth-child(2){font-size:10px!important;line-height:1.15!important}
+ .admin-label{font-size:9px!important}
+ .admin-chip strong{font-size:10px!important}
+ .admin-check{font-size:15px!important}
+ .head-update{min-height:41px!important;padding:5px 7px!important;font-size:10px!important;border-radius:12px!important}
+ .head-install{display:none!important}
+ .head-bottom{margin-top:5px!important;min-height:22px!important}
+ .head-bottom .cloud-chip{padding:4px 8px!important;font-size:9px!important;line-height:1.1!important}
+ .head-bottom .cloud-chip i{width:7px!important;height:7px!important}
+ .top-menu-btn{padding:4px 8px!important;font-size:9px!important}
+ .more-menu{top:112px!important}
+ .wrap{margin-top:12px!important}
+}
 </style></head><body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script>
 <section id="loginGate"><div class="gate-card"><h1>🤝 SABKA HISSA</h1><p class="gate-sub">अपनो हिस्सेदारी · अपनो हिस्सा</p><div class="gate-switch"><button type="button" id="gateAdminTab" class="active" onclick="setGateMode('admin')">👑 Admin Login</button><button type="button" id="gateMemberTab" onclick="setGateMode('member')">👥 Member Login</button></div><div id="gateAdminForm"><label>Admin Email</label><input id="gateAdminEmail" type="email" autocomplete="username" placeholder="Admin email"><label>Admin Password</label><input id="gateAdminPassword" type="password" autocomplete="current-password" placeholder="Admin password"><button id="gateAdminSubmit" type="button" style="width:100%;margin-top:16px" onclick="gateAdminLogin()">Admin Login</button></div><div id="gateMemberForm" class="hide"><label>Member Username</label><input id="gateMemberUsername" type="text" autocomplete="username" placeholder="Member username"><label>Member Password</label><input id="gateMemberPassword" type="password" autocomplete="current-password" placeholder="Member password"><button id="gateMemberSubmit" type="button" style="width:100%;margin-top:16px" onclick="gateMemberLogin()">Member Login</button></div><div id="gateError" class="gate-error" role="alert"></div><button type="button" class="gate-install" id="gateInstallBtn" onclick="installApp()"><img class="install-mark" src="/sabka_hissa/icon.svg" alt=""> 📲 Install SABKA HISSA App</button><p class="gate-help">Admin र Member का लागि एउटै सुरक्षित प्रवेश पृष्ठ</p></div></section>
