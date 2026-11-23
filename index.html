@@ -191,6 +191,15 @@ th{background:#173b2c;color:#a9d9bd}td{border-color:#315441;color:#e3f1e7}
 #members .member-stat span{font-size:12px!important;line-height:1.25!important}
 #members .member-stat b{margin-top:5px!important;font-size:20px!important;line-height:1.2!important}
 @media(max-width:380px){#members .member-stats{gap:7px!important}#members .member-stat{padding:10px 9px!important}#members .member-stat span{font-size:11px!important}#members .member-stat b{font-size:18px!important}}
+
+/* Compact dashboard summary cards on phones */
+@media(max-width:520px){
+ #home>.grid{gap:8px!important}
+ #home>.grid>.stat{min-height:100px!important;height:auto!important;padding:11px 11px!important;border-radius:17px!important}
+ #home>.grid>.stat small{font-size:12px!important;line-height:1.2!important;max-width:76%!important}
+ #home>.grid>.stat strong{font-size:24px!important;line-height:1.15!important;margin-top:6px!important}
+ #home>.grid>.stat .emoji{top:11px!important;right:11px!important;font-size:22px!important;padding:8px!important;border-radius:50%!important}
+}
 </style></head><body>
 <div id="cloudNotice" class="cloud-notice" role="status" aria-live="polite"></div><header class="head"><div class="brand brand-sign-only"><div class="brand-copy"><div class="brand-title"><div class="sath-sign-text" role="img" aria-label="हाम्रो साथ तपाईंको हात"><span class="sath-words">हाम्रो साथ</span><span class="sath-hand">🤝</span><span class="sath-words">तपाईंको हात</span></div></div><div class="brand-meta"><span class="tag">Apno Hissedari, Apno Hissa</span><span class="muted" id="date"></span></div></div></div><div class="head-tools"><div class="admin-chip"><div class="admin-avatar" id="adminAvatar">SH</div><span><b class="admin-label">ADMIN:</b> <strong id="adminNameHead">Not Set</strong></span><span class="admin-check">✓</span></div><button class="head-update" id="updateBtn" type="button" onclick="updateApp()">↻ Update</button></div><div class="head-bottom"><div class="cloud-chip cloud-off" id="cloudStatus"><i></i> Cloud OFF</div><button class="top-menu-btn" id="topMenuButton" type="button" aria-expanded="false" aria-controls="moreMenu">☰ Menu ▾</button></div></header>
 <main class="wrap">
