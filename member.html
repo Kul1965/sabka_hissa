@@ -85,10 +85,13 @@ body{background:radial-gradient(ellipse at 15% 0%,#0b6244 0%,#062d21 43%,#031a13
 .member-share-chart{height:110px;margin-top:9px}
 .member-share-chart svg{width:100%;height:100%}
 .member-share-chart .grid{stroke:#ffffff20;stroke-dasharray:4 5;fill:none}
-.member-share-chart .line{fill:none;stroke-width:3;stroke-linecap:round;stroke-dasharray:500;stroke-dashoffset:500;animation:memberLineFlow 2.8s ease-in-out infinite alternate}
+.member-share-chart .line{fill:none;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:18 9;stroke-dashoffset:0;animation:memberLineFlow 1.15s linear infinite}
 .member-share-chart .line.gain{stroke:#39d99a;filter:drop-shadow(0 0 5px #39d99a88)}
 .member-share-chart .line.loss{stroke:#ff707c;filter:drop-shadow(0 0 5px #ff707c88)}
 .member-share-chart .dot{animation:memberDotPulse 1.4s ease-in-out infinite}
+@keyframes memberLineFlow{to{stroke-dashoffset:-54}}
+@keyframes memberDotPulse{0%,100%{r:4;opacity:.75}50%{r:7;opacity:1;filter:drop-shadow(0 0 7px currentColor)}}
+@media(prefers-reduced-motion:reduce){.member-share-chart .line,.member-share-chart .dot{animation:none}}
 .member-share-chart .dot.gain{fill:#39d99a}.member-share-chart .dot.loss{fill:#ff707c}
 .member-share-explain{font-size:11px;color:#b4d1bf;line-height:1.5;margin-top:5px}
 .member-section>.panel{margin-top:11px;padding:14px;border-radius:17px;background:linear-gradient(145deg,#103b2a,#08271d);border-color:#66896a}
