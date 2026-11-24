@@ -1,0 +1,32 @@
+{
+  "id": "/sabka_hissa/member-app/",
+  "name": "SABKA HISSA Member",
+  "short_name": "SH Member",
+  "description": "SABKA HISSA member account and dashboard",
+  "start_url": "/sabka_hissa/member.html?source=member-app",
+  "scope": "/sabka_hissa/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#062c20",
+  "theme_color": "#0d563d",
+  "icons": [
+    {
+      "src": "/sabka_hissa/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/sabka_hissa/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/sabka_hissa/icon-apple.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
