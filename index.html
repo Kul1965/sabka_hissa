@@ -350,6 +350,12 @@ body:not(.auth-admin)>.head,body:not(.auth-admin)>.wrap,body:not(.auth-admin)>.b
 .chat-compose textarea{min-height:42px}
 .chat-compose:focus-within{border-color:#159765;box-shadow:0 0 0 3px #15976533,0 5px 16px #0005}
 @media(max-width:520px){.chat-shell{height:64vh;min-height:390px;max-height:620px}.chat-messages{min-height:0}.chat-compose{bottom:calc(86px + env(safe-area-inset-bottom))}}
+
+/* Chat touch fix: member picker must swipe horizontally and remain tappable on Android */
+#messagePeople.message-people{display:flex!important;flex-wrap:nowrap!important;width:100%!important;max-width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;white-space:nowrap!important;touch-action:pan-x!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-x:contain!important;scroll-snap-type:x proximity!important;pointer-events:auto!important;position:relative!important;z-index:4!important;flex:0 0 auto!important}
+#messagePeople .person-chip{flex:0 0 88px!important;min-width:88px!important;touch-action:manipulation!important;pointer-events:auto!important;cursor:pointer!important;scroll-snap-align:start!important}
+#messagePeople .person-chip.selected .person-avatar{box-shadow:0 0 0 3px #42e6a0,0 0 16px #42e6a088!important}
+#messageList.chat-messages{overflow-x:hidden!important;overflow-y:auto!important;min-height:0!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-y:contain!important;pointer-events:auto!important}
 </style><link rel="apple-touch-icon" sizes="180x180" href="/sabka_hissa/icon-apple.png">
 <style>
 /* Sketch-matched header layout: brand, admin, clock/date, cloud/update/menu */
