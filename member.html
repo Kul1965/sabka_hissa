@@ -409,6 +409,12 @@ body{width:100%;overflow-x:hidden}
  #portal .member-summary .stat strong{font-size:15px!important}
  #portal .member-dashboard-chart{height:70px!important}
 }
+
+/* Match Member top header colors to the Admin green-gold header; leave dashboard cards untouched */
+.member-slogan-bar{background:linear-gradient(110deg,#063d2b 0%,#07583e 55%,#063d2b 100%)!important;border:1px solid #c9a74e!important;color:#f0d78d!important;box-shadow:inset 0 1px 0 #ffffff18,0 3px 0 #0005!important;text-shadow:0 1px 0 #704400,0 2px 4px #0008!important;animation:none!important}
+.member-slogan-bar b{filter:drop-shadow(0 2px 0 #754500) drop-shadow(0 0 5px #00d96a)!important}
+#portal>.member-hero{background:linear-gradient(110deg,#063d2b 0%,#07583e 55%,#063d2b 100%)!important;border:1px solid #c9a74e!important;box-shadow:0 4px 12px #0005!important}
+#portal>.member-hero:after{border-color:#d9b85a44!important}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="member-slogan-bar"><span class="slogan-side slogan-left">एकता • विश्वास</span><span>हाम्रो साथ</span><b>🤝</b><span>तपाईंको हात</span><span class="slogan-side slogan-right">समृद्धि • साझेदारी</span></header>
