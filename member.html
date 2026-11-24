@@ -295,6 +295,30 @@ body{width:100%;overflow-x:hidden}
  .member-share-table th{width:55%}
 }
 
+
+/* Restore side-by-side dashboard: wide index, slim tall ownership panel */
+@media(min-width:700px){
+ #memberOverview{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.85fr);gap:12px;align-items:stretch}
+ #memberOverview>#memberSummary{grid-column:1/-1;grid-row:1}
+ #memberOverview>.member-dashboard-index{grid-column:1;grid-row:2;margin-top:0;min-width:0;min-height:100%;padding:14px}
+ #memberOverview>.panel{grid-column:2;grid-row:2;margin-top:0;min-width:0;min-height:100%;padding:13px}
+ .member-dashboard-chart{height:clamp(125px,15vw,185px)}
+ .member-share-table th,.member-share-table td{padding:9px 8px;font-size:12px}
+ .member-share-table th{width:60%}
+}
+@media(min-width:700px) and (max-width:999px){
+ #memberOverview{grid-template-columns:minmax(0,1.2fr) minmax(230px,.8fr);gap:9px}
+ #memberOverview>.member-dashboard-index,#memberOverview>.panel{padding:11px}
+ .member-share-table th,.member-share-table td{padding:8px 6px;font-size:11px}
+ .member-dashboard-chart{height:125px}
+}
+@media(min-width:1000px){
+ #memberOverview{grid-template-columns:minmax(0,1.6fr) minmax(290px,.8fr);gap:14px}
+ #memberOverview>.member-dashboard-index{padding:18px}
+ #memberOverview>.panel{padding:15px}
+ .member-dashboard-chart{height:clamp(150px,15vw,205px)}
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="brand"><h1>SABKA HISSA</h1><p>Member Secure Portal · सदस्य खाता</p></header>
