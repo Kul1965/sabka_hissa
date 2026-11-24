@@ -415,6 +415,25 @@ body{width:100%;overflow-x:hidden}
 .member-slogan-bar b{filter:drop-shadow(0 2px 0 #754500) drop-shadow(0 0 5px #00d96a)!important}
 #portal>.member-hero{background:linear-gradient(110deg,#063d2b 0%,#07583e 55%,#063d2b 100%)!important;border:1px solid #c9a74e!important;box-shadow:0 4px 12px #0005!important}
 #portal>.member-hero:after{border-color:#d9b85a44!important}
+
+/* Keep member full name on one line on iPhone and Android */
+#portal>.member-hero{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:8px!important}
+#portal>.member-hero>img.member-avatar{flex:0 0 52px!important;width:52px!important;height:52px!important}
+#portal>.member-hero>div:nth-child(2){flex:1 1 0!important;min-width:0!important;width:0!important}
+#portal>.member-hero>div:nth-child(2)>h2#memberName{display:block!important;width:100%!important;white-space:nowrap!important;overflow:visible!important;overflow-wrap:normal!important;word-break:keep-all!important;letter-spacing:-.45px!important;font-size:clamp(11px,3.65vw,17px)!important;line-height:1.15!important}
+#portal>.member-hero>div:last-child{flex:0 0 116px!important;min-width:0!important;width:116px!important;gap:5px!important}
+#portal>.member-hero>div:last-child .btn{width:100%!important;min-width:0!important;flex:1 1 auto!important;padding:7px 5px!important;font-size:10px!important;white-space:nowrap!important}
+@media(min-width:520px){
+ #portal>.member-hero>img.member-avatar{flex-basis:60px!important;width:60px!important;height:60px!important}
+ #portal>.member-hero>div:last-child{flex-basis:132px!important;width:132px!important}
+ #portal>.member-hero>div:nth-child(2)>h2#memberName{font-size:clamp(15px,2.7vw,21px)!important}
+}
+@media(max-width:360px){
+ #portal>.member-hero{gap:5px!important;padding:8px!important}
+ #portal>.member-hero>img.member-avatar{flex-basis:43px!important;width:43px!important;height:43px!important}
+ #portal>.member-hero>div:last-child{flex-basis:103px!important;width:103px!important}
+ #portal>.member-hero>div:nth-child(2)>h2#memberName{font-size:clamp(10px,3.4vw,12px)!important;letter-spacing:-.55px!important}
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="member-slogan-bar"><span class="slogan-side slogan-left">एकता • विश्वास</span><span>हाम्रो साथ</span><b>🤝</b><span>तपाईंको हात</span><span class="slogan-side slogan-right">समृद्धि • साझेदारी</span></header>
