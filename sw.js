@@ -1,5 +1,5 @@
 self.addEventListener('message',event=>{if(event.data&&event.data.type==='SKIP_WAITING')self.skipWaiting()});
-const CACHE='sabka-hissa-shell-v140';
+const CACHE='sabka-hissa-shell-v141';
 const FILES=['/sabka_hissa/','/sabka_hissa/index.html','/sabka_hissa/member.html','/sabka_hissa/member-config.js','/sabka_hissa/manifest.webmanifest','/sabka_hissa/member-manifest.webmanifest','/sabka_hissa/icon.svg','/sabka_hissa/icon-apple.png','/sabka_hissa/sath-signboard-handshake.webp'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('sabka-hissa-shell-')&&k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim()});
