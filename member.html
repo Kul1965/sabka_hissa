@@ -122,7 +122,88 @@ body{background:radial-gradient(ellipse at 15% 0%,#0b6244 0%,#062d21 43%,#031a13
  .member-bottom-nav{min-height:61px}
  #memberChat{height:calc(100dvh - 175px);min-height:320px}
 }
-.member-index-board{border:1px solid #28a875;box-shadow:0 0 22px #1b9a6840}.member-index-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.member-index-head small,.member-index-hero small{color:#557e6a;font-weight:900;letter-spacing:1px;font-size:10px}.member-index-head h2{margin:4px 0 10px;color:#234f3d}.member-index-hero{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #2b9b6a55}.member-index-hero strong{display:block;color:#168b59;font-size:clamp(30px,8vw,48px);font-weight:900;letter-spacing:-1px}.member-index-change{text-align:right;font-weight:900;font-size:clamp(14px,4vw,20px)}.member-index-change small{display:block;margin-top:6px;font-size:13px}.member-index-chart{height:180px;margin:12px 0}.member-index-chart svg{width:100%;height:100%}.member-dashboard-index{margin-top:12px;padding:15px;border:1px solid #c9a74e;border-radius:18px;background:linear-gradient(135deg,#0b5037,#08271d);box-shadow:0 8px 22px #0004;cursor:pointer}.member-dashboard-index h3{margin:4px 0;color:#f1dfa3;font-size:17px}.member-dashboard-index .member-index-hero{margin-top:8px}.member-dashboard-chart{height:112px;margin:4px 0}.member-dashboard-chart svg{width:100%;height:100%}.member-dashboard-open{display:block;color:#d9c477;text-align:right;font-weight:800;font-size:11px;margin-top:5px}.member-index-note{font-size:11px;color:#8ca99a;margin:12px 0 0}.member-bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))!important}@media(max-width:380px){.member-bottom-nav button{font-size:10px;padding:7px 1px}.member-bottom-nav button span:first-child{font-size:17px}}</style>
+.member-index-board{border:1px solid #28a875;box-shadow:0 0 22px #1b9a6840}.member-index-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.member-index-head small,.member-index-hero small{color:#557e6a;font-weight:900;letter-spacing:1px;font-size:10px}.member-index-head h2{margin:4px 0 10px;color:#234f3d}.member-index-hero{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #2b9b6a55}.member-index-hero strong{display:block;color:#168b59;font-size:clamp(30px,8vw,48px);font-weight:900;letter-spacing:-1px}.member-index-change{text-align:right;font-weight:900;font-size:clamp(14px,4vw,20px)}.member-index-change small{display:block;margin-top:6px;font-size:13px}.member-index-chart{height:180px;margin:12px 0}.member-index-chart svg{width:100%;height:100%}.member-dashboard-index{margin-top:12px;padding:15px;border:1px solid #c9a74e;border-radius:18px;background:linear-gradient(135deg,#0b5037,#08271d);box-shadow:0 8px 22px #0004;cursor:pointer}.member-dashboard-index h3{margin:4px 0;color:#f1dfa3;font-size:17px}.member-dashboard-index .member-index-hero{margin-top:8px}.member-dashboard-chart{height:112px;margin:4px 0}.member-dashboard-chart svg{width:100%;height:100%}.member-dashboard-open{display:block;color:#d9c477;text-align:right;font-weight:800;font-size:11px;margin-top:5px}.member-index-note{font-size:11px;color:#8ca99a;margin:12px 0 0}.member-bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))!important}@media(max-width:380px){.member-bottom-nav button{font-size:10px;padding:7px 1px}.member-bottom-nav button span:first-child{font-size:17px}}
+/* Responsive member portal: phone, tablet and desktop */
+html{min-width:320px;scroll-behavior:smooth}
+body{width:100%;overflow-x:hidden}
+.member-portal-wrap{width:min(100% - 24px,1440px);max-width:1440px;margin-inline:auto;padding:12px 0 calc(104px + env(safe-area-inset-bottom))}
+#portal{width:100%;min-width:0}
+.member-hero,.member-section,.member-share-market,.panel{min-width:0}
+.member-hero{flex-wrap:wrap}
+.member-hero>div{min-width:0}
+.member-summary .stat,.member-record,.member-profile-item{min-width:0;overflow-wrap:anywhere}
+.member-share-chart,.member-dashboard-chart{width:100%;min-width:0}
+.member-share-chart svg,.member-dashboard-chart svg{display:block;width:100%;height:100%}
+.member-bottom-nav{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+.member-bottom-nav button{overflow:hidden;text-overflow:ellipsis}
+@media(min-width:700px){
+ .member-portal-wrap{width:min(100% - 40px,1440px);padding-top:20px;padding-bottom:112px}
+ .brand{min-height:58px;padding:12px 20px}
+ .brand h1{font-size:23px}
+ .brand p{font-size:12px}
+ .member-hero{padding:20px 24px;gap:18px;border-radius:20px}
+ .member-avatar{width:78px;height:78px;flex-basis:78px}
+ .member-hero h2{font-size:25px}
+ .member-hero p{font-size:14px}
+ .member-summary{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+ .member-summary .stat{min-height:100px;padding:17px}
+ .member-summary .stat small{font-size:13px}
+ .member-summary .stat strong{font-size:clamp(19px,2vw,25px)}
+ .member-dashboard-index{padding:20px 22px;border-radius:20px}
+ .member-dashboard-index h3{font-size:19px}
+ .member-dashboard-chart{height:155px}
+ .member-share-explain{font-size:13px}
+ .member-section>.panel,.member-share-market{padding:20px;border-radius:19px}
+ .member-section-title{font-size:19px}
+ .member-profile-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+ .member-profile-item{padding:14px}
+ .member-record{padding:15px}
+ .member-bottom-nav{left:50%;right:auto;transform:translateX(-50%);width:min(100%,1440px);padding:9px 20px calc(9px + env(safe-area-inset-bottom));grid-template-columns:repeat(5,minmax(0,1fr));border-left:1px solid #b99a49;border-right:1px solid #b99a49;border-radius:16px 16px 0 0}
+ .member-bottom-nav button{min-height:54px;font-size:12px}
+ .member-bottom-nav button span:first-child{font-size:22px}
+ #memberChat{height: min(72dvh,760px);min-height:480px}
+}
+@media(min-width:1000px){
+ .member-portal-wrap{width:min(100% - 64px,1440px)}
+ #memberOverview{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.85fr);gap:16px;align-items:start}
+ #memberOverview>#memberSummary{grid-column:1/-1;grid-row:1}
+ #memberOverview>.member-dashboard-index{grid-column:1;grid-row:2;margin-top:0;min-height:100%}
+ #memberOverview>.panel{grid-column:2;grid-row:2;margin-top:0;min-height:100%}
+ .member-summary .stat{min-height:112px}
+ .member-dashboard-chart{height:clamp(150px,18vw,230px)}
+ .member-share-market{padding:24px}
+ .member-index-chart{height:240px}
+ .member-section:not(#memberOverview){max-width:100%}
+ .member-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ #memberActivityInfo.member-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:520px){
+ .member-portal-wrap{width:calc(100% - 20px);padding-top:7px}
+ .member-hero{gap:8px}
+ .member-hero>div:nth-child(2){flex:1 1 150px}
+ .member-hero>div:last-child{flex-direction:row!important;flex:1 1 100%;justify-content:flex-end}
+ .member-hero .btn{font-size:11px}
+ .member-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .member-dashboard-index{padding:12px}
+ .member-dashboard-chart{height:95px}
+ .member-index-hero strong{font-size:clamp(27px,9vw,40px)}
+ .member-index-chart{height:130px}
+ .member-share-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .member-profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:360px){
+ .member-portal-wrap{width:calc(100% - 14px)}
+ .member-summary{gap:6px}
+ .member-summary .stat{padding:9px;min-height:70px}
+ .member-summary .stat small{font-size:10px}
+ .member-summary .stat strong{font-size:16px}
+ .member-hero h2{font-size:16px}
+ .member-avatar{width:50px;height:50px;flex-basis:50px}
+ .member-bottom-nav{gap:1px;padding-left:4px;padding-right:4px}
+ .member-bottom-nav button{font-size:9px}
+}
+
+</style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="brand"><h1>SABKA HISSA</h1><p>Member Secure Portal · सदस्य खाता</p></header>
 
