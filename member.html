@@ -271,6 +271,30 @@ body{width:100%;overflow-x:hidden}
  .member-hero>div:nth-child(2)>p{grid-row:4}
 }
 
+
+/* Fill dashboard canvas with useful full-width chart and structured account table */
+@media(min-width:700px){
+ #memberOverview{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;align-items:start}
+ #memberOverview>#memberSummary{grid-column:1;grid-row:1}
+ #memberOverview>.member-dashboard-index{grid-column:1;grid-row:2;margin-top:0;min-height:0}
+ #memberOverview>.panel{grid-column:1;grid-row:3;margin-top:0;min-height:0}
+ .member-dashboard-index{width:100%}
+ .member-dashboard-chart{height:clamp(145px,20vw,230px)}
+}
+.member-share-table-wrap{width:100%;overflow-x:auto;border:1px solid #547b61;border-radius:14px;background:#092b20}
+.member-share-table{width:100%;border-collapse:separate;border-spacing:0;min-width:0}
+.member-share-table th,.member-share-table td{padding:12px 14px;border-bottom:1px solid #456b524f;text-align:left;font-size:clamp(12px,1.5vw,14px);line-height:1.45}
+.member-share-table tr:last-child th,.member-share-table tr:last-child td{border-bottom:0}
+.member-share-table th{width:58%;color:#b9d9c5;font-weight:700;background:transparent}
+.member-share-table td{color:#f3dfa0;text-align:right;font-weight:850;overflow-wrap:anywhere}
+.member-share-table tr:nth-child(even){background:#ffffff08}
+.member-share-table td.positive{color:#52e0a4}
+.member-share-table td.negative{color:#ff8b91}
+@media(max-width:520px){
+ .member-share-table th,.member-share-table td{padding:10px 9px;font-size:12px}
+ .member-share-table th{width:55%}
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="brand"><h1>SABKA HISSA</h1><p>Member Secure Portal · सदस्य खाता</p></header>
@@ -319,7 +343,14 @@ function renderMemberPortal(md){
 
 
  $('memberSummary').innerHTML='<div class="stat"><small>💰 मेरा निवेश</small><strong>'+money(investment)+'</strong></div><div class="stat"><small>✦ Ownership Share</small><strong>'+esc(share)+'</strong></div><div class="stat"><small>🏦 Company Capital</small><strong>'+money(total)+'</strong></div><div class="stat"><small>🧰 Duty / Work Records</small><strong>'+(md.works||[]).length+'</strong></div>';
- $('memberShareInfo').innerHTML='<div class="member-record"><b>आपकी हिस्सेदारी</b><small>कंपनी के कुल निवेश के आधार पर आपका हिस्सा: '+esc(share)+'</small><small>मूल Capital: '+money(investment)+'</small><small>Profit / Loss Share: '+money(profitShare)+'</small><small>आज की अनुमानित कुल Value: '+money(totalValue)+'</small></div>';
+ $('memberShareInfo').innerHTML='<div class="member-share-table-wrap"><table class="member-share-table"><tbody>'+
+ '<tr><th>आपकी Ownership Share</th><td>'+esc(share)+'</td></tr>'+
+ '<tr><th>मूल निवेश / Capital</th><td>'+money(investment)+'</td></tr>'+
+ '<tr><th>Profit / Loss Share</th><td class="'+(up?'positive':down?'negative':'')+'">'+(up?'+':'')+money(profitShare)+'</td></tr>'+
+ '<tr><th>आज की अनुमानित कुल Value</th><td>'+money(totalValue)+'</td></tr>'+
+ '<tr><th>Personal Share Index</th><td>'+fmtIndex(indexValue)+'</td></tr>'+
+ '<tr><th>Duty / Work Records</th><td>'+((md.works||[]).length)+'</td></tr>'+
+ '</tbody></table></div>';
  $('memberProfileInfo').innerHTML=[profileItem('पूरा नाम',p.name),profileItem('मोबाइल',p.phone),profileItem('पता',p.address),profileItem('सदस्य प्रकार',p.type),profileItem('Join Date',niceDate(p.joinDate)),profileItem('Investment',money(investment))].join('');
  const works=md.works||[],entries=md.entries||[];
  const records=[...entries.map(x=>({date:x.date,title:x.type==='Income'?'आय':x.type==='Expense'?'खर्च':(x.type||'Account'),detail:(x.business||'Company')+' · '+(x.desc||x.description||x.party||'विवरण दर्ज नहीं'),amount:Number(x.amount)||0})),...works.map(x=>({date:x.date||x.dutyDate,title:'Duty / Work',detail:(x.business||'')+' · '+(x.type||'Work')+' · '+(x.hours||0)+' घंटे',amount:Number(x.amount)||0}))].sort((a,b)=>String(b.date).localeCompare(String(a.date)));
