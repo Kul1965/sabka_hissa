@@ -434,6 +434,18 @@ body{width:100%;overflow-x:hidden}
  #portal>.member-hero>div:last-child{flex-basis:103px!important;width:103px!important}
  #portal>.member-hero>div:nth-child(2)>h2#memberName{font-size:clamp(10px,3.4vw,12px)!important;letter-spacing:-.55px!important}
 }
+
+/* Give Update App and Logout buttons a little more room without header overflow */
+#portal>.member-hero>div:last-child{flex-basis:124px!important;width:124px!important;gap:6px!important}
+#portal>.member-hero>div:last-child .btn{min-height:34px!important;height:34px!important;padding:8px 6px!important;font-size:10px!important;line-height:1.1!important}
+@media(min-width:520px){
+ #portal>.member-hero>div:last-child{flex-basis:138px!important;width:138px!important}
+ #portal>.member-hero>div:last-child .btn{min-height:36px!important;height:36px!important}
+}
+@media(max-width:360px){
+ #portal>.member-hero>div:last-child{flex-basis:110px!important;width:110px!important}
+ #portal>.member-hero>div:last-child .btn{min-height:32px!important;height:32px!important;font-size:9px!important;padding:7px 4px!important}
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="member-slogan-bar"><span class="slogan-side slogan-left">एकता • विश्वास</span><span>हाम्रो साथ</span><b>🤝</b><span>तपाईंको हात</span><span class="slogan-side slogan-right">समृद्धि • साझेदारी</span></header>
