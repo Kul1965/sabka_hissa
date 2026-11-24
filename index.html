@@ -356,6 +356,16 @@ body:not(.auth-admin)>.head,body:not(.auth-admin)>.wrap,body:not(.auth-admin)>.b
 #messagePeople .person-chip{flex:0 0 88px!important;min-width:88px!important;touch-action:manipulation!important;pointer-events:auto!important;cursor:pointer!important;scroll-snap-align:start!important}
 #messagePeople .person-chip.selected .person-avatar{box-shadow:0 0 0 3px #42e6a0,0 0 16px #42e6a088!important}
 #messageList.chat-messages{overflow-x:hidden!important;overflow-y:auto!important;min-height:0!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-y:contain!important;pointer-events:auto!important}
+
+/* Admin chat composer: compact bottom bar, never cover message bubbles */
+#messages .chat-shell{display:flex!important;flex-direction:column!important;height:62vh!important;min-height:360px!important;max-height:680px!important;gap:8px!important;padding:10px!important;overflow:hidden!important}
+#messages #messageList.chat-messages{flex:1 1 0!important;min-height:0!important;height:0!important;max-height:none!important;padding:7px 2px 10px!important;overflow-x:hidden!important;overflow-y:auto!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-y:contain!important}
+#messages .chat-compose{position:relative!important;inset:auto!important;bottom:auto!important;z-index:2!important;flex:0 0 auto!important;min-height:48px!important;max-height:62px!important;margin:0!important;padding:4px 6px!important;gap:6px!important;border-radius:28px!important;box-shadow:0 2px 7px #0003!important}
+#messages .chat-compose textarea{min-height:34px!important;height:36px!important;max-height:42px!important;padding:6px 8px!important;font-size:14px!important;line-height:1.25!important;resize:none!important;overflow-y:auto!important}
+#messages .chat-compose .send-round{width:42px!important;height:42px!important;flex:0 0 42px!important;font-size:23px!important}
+#messages .chat-compose .chat-photo-btn{width:38px!important;height:38px!important;min-width:38px!important;flex:0 0 38px!important;padding:0!important;border-radius:50%!important}
+#messages .chat-photo-preview{flex:0 0 auto!important;max-height:58px!important;overflow:auto!important}
+@media(max-width:520px){#messages .chat-shell{height:60vh!important;min-height:330px!important;max-height:560px!important;padding:8px!important;gap:6px!important}#messages .chat-compose{min-height:46px!important;max-height:56px!important;padding:3px 5px!important}#messages .chat-compose textarea{min-height:32px!important;height:34px!important;font-size:13px!important}#messages .chat-compose .send-round{width:40px!important;height:40px!important;flex-basis:40px!important}}
 </style><link rel="apple-touch-icon" sizes="180x180" href="/sabka_hissa/icon-apple.png">
 <style>
 /* Sketch-matched header layout: brand, admin, clock/date, cloud/update/menu */
