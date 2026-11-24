@@ -464,6 +464,11 @@ body{width:100%;overflow-x:hidden}
 /* Keep SABKA HISSA · MEMBER ACCOUNT eyebrow on one line */
 #portal>.member-hero>div:nth-child(2)>small{display:block!important;width:100%!important;white-space:nowrap!important;overflow:visible!important;word-break:keep-all!important;letter-spacing:.35px!important;font-size:clamp(8px,2.25vw,11px)!important;line-height:1.15!important}
 @media(max-width:360px){#portal>.member-hero>div:nth-child(2)>small{font-size:8px!important;letter-spacing:0!important}}
+
+/* Chat touch fix: keep the conversation thread independently vertically scrollable */
+#portal #memberChat{min-height:0!important;overflow:hidden!important;touch-action:pan-y!important}
+#portal #memberChatList.member-chat-thread{display:flex!important;flex:1 1 auto!important;min-height:0!important;height:auto!important;overflow-x:hidden!important;overflow-y:auto!important;touch-action:pan-y!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-y:contain!important;pointer-events:auto!important}
+#portal .member-chat-composer{flex:0 0 auto!important;touch-action:manipulation!important}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="member-slogan-bar"><span class="slogan-side slogan-left">एकता • विश्वास</span><span>हाम्रो साथ</span><b>🤝</b><span>तपाईंको हात</span><span class="slogan-side slogan-right">समृद्धि • साझेदारी</span></header>
