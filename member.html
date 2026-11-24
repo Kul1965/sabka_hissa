@@ -255,6 +255,22 @@ body{width:100%;overflow-x:hidden}
  .member-hero>div:last-child .btn{flex:1}
 }
 
+
+/* Final small-screen overflow guard for the glowing Nepali signature */
+.member-hero,.member-hero *{box-sizing:border-box}
+.member-hero>div:nth-child(2){min-width:0;max-width:100%}
+.member-hero>div:nth-child(2)>h2{min-width:0;overflow-wrap:anywhere}
+.member-hero>div:nth-child(2)>.member-sath-inline{min-width:0;max-width:100%;box-sizing:border-box;white-space:nowrap;overflow:hidden;text-overflow:clip}
+@media(max-width:520px){
+ .member-hero>div:nth-child(2){grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);column-gap:5px}
+ .member-hero>div:nth-child(2)>.member-sath-inline{width:100%;justify-content:center;font-size:clamp(9px,2.65vw,12px);letter-spacing:0;padding:4px 4px;gap:2px}
+}
+@media(max-width:380px){
+ .member-hero>div:nth-child(2){grid-template-columns:minmax(0,1fr)}
+ .member-hero>div:nth-child(2)>.member-sath-inline{grid-column:1;grid-row:3;width:max-content;max-width:100%;font-size:11px;padding:4px 7px}
+ .member-hero>div:nth-child(2)>p{grid-row:4}
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="brand"><h1>SABKA HISSA</h1><p>Member Secure Portal · सदस्य खाता</p></header>
