@@ -629,6 +629,17 @@ body{width:100%;overflow-x:hidden}
  #portal header.member-hero div.member-hero-actions>button,
  #portal header.member-hero div.member-hero-actions>details.member-menu{font-size:10px!important}
 }
+
+/* HARD RESET: explicit three-column member action layout */
+#portal>header.member-hero{display:grid!important;grid-template-columns:52px minmax(0,1fr)!important;grid-template-rows:auto auto!important;align-items:center!important;justify-items:stretch!important;column-gap:9px!important;row-gap:12px!important}
+#portal>header.member-hero>img.member-avatar{grid-column:1!important;grid-row:1!important;width:52px!important;height:52px!important}
+#portal>header.member-hero>div:nth-child(2){grid-column:2!important;grid-row:1!important;min-width:0!important;width:auto!important}
+#portal>header.member-hero>div.member-hero-actions{grid-column:1/-1!important;grid-row:2!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;width:100%!important;min-width:0!important;max-width:100%!important;gap:7px!important;margin:0!important;padding:0!important;box-sizing:border-box!important;position:relative!important}
+#portal>header.member-hero>div.member-hero-actions>button,#portal>header.member-hero>div.member-hero-actions>details.member-menu{grid-column:auto!important;grid-row:auto!important;display:flex!important;position:relative!important;width:100%!important;min-width:0!important;max-width:100%!important;height:44px!important;min-height:44px!important;margin:0!important;padding:0 2px!important;box-sizing:border-box!important;align-items:center!important;justify-content:center!important;white-space:nowrap!important;overflow:hidden!important;font-size:clamp(9px,2.8vw,12px)!important;line-height:1!important}
+#portal>header.member-hero>div.member-hero-actions>details.member-menu{display:block!important}
+#portal>header.member-hero>div.member-hero-actions>details.member-menu>summary{display:flex!important;width:100%!important;height:44px!important;min-height:44px!important;margin:0!important;padding:0 1px!important;box-sizing:border-box!important;align-items:center!important;justify-content:center!important;white-space:nowrap!important;font-size:inherit!important;line-height:1!important}
+#portal>header.member-hero>div.member-hero-actions>details.member-menu .member-menu-list{position:absolute!important;right:0!important;top:calc(100% + 6px)!important;z-index:9999!important}
+@media(max-width:360px){#portal>header.member-hero{grid-template-columns:44px minmax(0,1fr)!important;padding:10px!important;column-gap:7px!important}#portal>header.member-hero>img.member-avatar{width:44px!important;height:44px!important}#portal>header.member-hero>div.member-hero-actions{gap:4px!important}#portal>header.member-hero>div.member-hero-actions>button,#portal>header.member-hero>div.member-hero-actions>details.member-menu{font-size:9px!important}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="member-slogan-bar"><span class="slogan-side slogan-left">एकता • विश्वास</span><span>हाम्रो साथ</span><b>🤝</b><span>तपाईंको हात</span><span class="slogan-side slogan-right">समृद्धि • साझेदारी</span></header>
