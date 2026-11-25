@@ -649,6 +649,13 @@ body{width:100%;overflow-x:hidden}
 #portal .member-hero-actions details.member-menu .member-menu-list{display:none;position:absolute!important;top:calc(100% + 8px)!important;right:0!important;left:auto!important;min-width:210px!important;width:max-content!important;max-width:min(280px,84vw)!important;z-index:2000!important;pointer-events:auto!important}
 #portal .member-hero-actions details.member-menu[open] .member-menu-list{display:grid!important}
 #portal .member-hero-actions details.member-menu>summary{cursor:pointer!important;position:relative!important;z-index:2001!important;touch-action:manipulation!important}
+
+/* Final mobile dropdown visibility fix: the header is nested inside #portal, not its direct child. */
+#portal .member-hero{overflow:visible!important;position:relative!important;z-index:100!important}
+#portal .member-hero-actions{overflow:visible!important;position:relative!important;z-index:110!important}
+#portal .member-hero-actions .member-menu{position:relative!important;z-index:120!important}
+#portal .member-hero-actions .member-menu[open] .member-menu-list{display:grid!important;visibility:visible!important;opacity:1!important}
+#portal .member-hero-actions .member-menu-list{background:#082d21!important;border:2px solid #d9b85a!important;box-shadow:0 14px 32px #000c!important;padding:9px!important}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="member-slogan-bar"><span class="slogan-side slogan-left">एकता • विश्वास</span><span>हाम्रो साथ</span><b>🤝</b><span>तपाईंको हात</span><span class="slogan-side slogan-right">समृद्धि • साझेदारी</span></header>
