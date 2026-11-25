@@ -459,6 +459,19 @@ body:not(.auth-admin)>.head,body:not(.auth-admin)>.wrap,body:not(.auth-admin)>.b
  #er th:last-child,#er td:last-child{width:29%;min-width:0}
  #er td:last-child .btn{display:inline-flex;margin:2px 2px 3px 0;min-height:32px;padding:5px 7px;font-size:10px;white-space:normal}
 }
+
+/* Accounts mobile: Member name, details and actions on one horizontal line */
+@media(max-width:600px){
+ #er .scroll{overflow-x:auto!important}
+ #er table{width:100%!important;min-width:0!important;table-layout:fixed!important}
+ #er thead tr,#er tbody tr{display:grid!important;grid-template-columns:26% 29% 45%!important;align-items:center!important;width:100%!important}
+ #er th,#er td{display:block!important;min-width:0!important;width:auto!important;padding:6px 3px!important;font-size:10px!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+ #er th:nth-child(1),#er td:nth-child(1),#er th:nth-child(3),#er td:nth-child(3),#er th:nth-child(4),#er td:nth-child(4),#er th:nth-child(5),#er td:nth-child(5),#er th:nth-child(6),#er td:nth-child(6),#er th:nth-child(7),#er td:nth-child(7){display:none!important}
+ #er th:nth-child(2),#er td:nth-child(2){grid-column:1!important}
+ #er th:nth-child(8),#er td:nth-child(8){grid-column:2!important}
+ #er th:last-child,#er td:last-child{grid-column:3!important;white-space:nowrap!important}
+ #er td:last-child .btn{display:inline-flex!important;vertical-align:middle!important;margin:1px!important;min-height:28px!important;padding:4px 5px!important;font-size:9px!important;white-space:nowrap!important}
+}
 </style><link rel="apple-touch-icon" sizes="180x180" href="/sabka_hissa/icon-apple.png">
 <style>
 /* Sketch-matched header layout: brand, admin, clock/date, cloud/update/menu */
