@@ -472,6 +472,14 @@ body:not(.auth-admin)>.head,body:not(.auth-admin)>.wrap,body:not(.auth-admin)>.b
  #er th:last-child,#er td:last-child{grid-column:3!important;white-space:nowrap!important}
  #er td:last-child .btn{display:inline-flex!important;vertical-align:middle!important;margin:1px!important;min-height:28px!important;padding:4px 5px!important;font-size:9px!important;white-space:nowrap!important}
 }
+
+/* Global mobile scrolling for every app page */
+html{min-height:100%;height:auto;overflow-x:hidden;overflow-y:auto;-webkit-text-size-adjust:100%}
+body{min-height:100%;height:auto;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:auto}
+.page:not(.hide){min-height:1px;height:auto;max-height:none;overflow:visible;touch-action:pan-y}
+.wrap{height:auto;max-height:none;overflow:visible;touch-action:pan-y}
+.panel,.scroll{max-width:100%;min-width:0}
+@media(max-width:600px){html,body{width:100%;max-width:100%;overflow-x:hidden}.page:not(.hide){padding-bottom:calc(100px + env(safe-area-inset-bottom))}.wrap{padding-bottom:calc(110px + env(safe-area-inset-bottom))}}
 </style><link rel="apple-touch-icon" sizes="180x180" href="/sabka_hissa/icon-apple.png">
 <style>
 /* Sketch-matched header layout: brand, admin, clock/date, cloud/update/menu */
