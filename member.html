@@ -720,7 +720,9 @@ function renderMemberPortal(md){
 
  $('memberSummary').innerHTML='<div class="stat"><small>💰 मेरा निवेश</small><strong>'+money(investment)+'</strong></div><div class="stat"><small>✦ Ownership Share</small><strong>'+esc(share)+'</strong></div><div class="stat"><small>🏦 Company Capital</small><strong>'+money(total)+'</strong></div><div class="stat"><small>🧰 Duty / Work Records</small><strong>'+(md.works||[]).length+'</strong></div>';
  $('memberShareInfo').innerHTML='<div class="member-share-table-wrap"><table class="member-share-table"><tbody>'+
- '<tr><th>आपकी Ownership Share</th><td>'+esc(share)+'</td></tr>'+\n '<tr><th>आपके Share Units</th><td>'+shareUnits.toLocaleString('en-IN',{maximumFractionDigits:6})+'</td></tr>'+\n '<tr><th>Current Share Unit Price</th><td>'+money(unitPrice)+'</td></tr>'+
+ '<tr><th>आपकी Ownership Share</th><td>'+esc(share)+'</td></tr>'+
+ '<tr><th>आपके Share Units</th><td>'+shareUnits.toLocaleString('en-IN',{maximumFractionDigits:6})+'</td></tr>'+
+ '<tr><th>Current Share Unit Price</th><td>'+money(unitPrice)+'</td></tr>'+
  '<tr><th>मूल निवेश / Capital</th><td>'+money(investment)+'</td></tr>'+
  '<tr><th>Profit / Loss Share</th><td class="'+(up?'positive':down?'negative':'')+'">'+(up?'+':'')+money(profitShare)+'</td></tr>'+
  '<tr><th>आज की अनुमानित कुल Value</th><td>'+money(totalValue)+'</td></tr>'+
