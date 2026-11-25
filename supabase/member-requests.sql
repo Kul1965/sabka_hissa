@@ -10,7 +10,7 @@ create table if not exists public.member_requests (
   requested_amount numeric(14,2) not null check (requested_amount > 0),
   approved_amount numeric(14,2),
   reason text not null default '',
-  status text not null default 'pending' check (status in ('pending','approved','rejected','paid')),
+  status text not null default 'pending' check (status in ('pending','approved','processing','rejected','paid')),
   admin_note text not null default '',
   created_at timestamptz not null default now(),
   reviewed_at timestamptz,
