@@ -722,14 +722,14 @@ function renderMemberPortal(md){
  $('memberShareInfo').innerHTML='<div class="member-share-table-wrap"><table class="member-share-table"><tbody>'+
  '<tr><th>आपकी Ownership Share</th><td>'+esc(share)+'</td></tr>'+
  '<tr><th>आपके Share Units</th><td>'+shareUnits.toLocaleString('en-IN',{maximumFractionDigits:6})+'</td></tr>'+
- '<tr><th>Current Share Unit Price</th><td>'+money(unitPrice)+'</td></tr>'+
+ '<tr><th>Current Share Unit Price</th><td>'+fmtUnitRate(unitPrice)+'</td></tr>'+
  '<tr><th>मूल निवेश / Capital</th><td>'+money(investment)+'</td></tr>'+
  '<tr><th>Profit / Loss Share</th><td class="'+(up?'positive':down?'negative':'')+'">'+(up?'+':'')+money(profitShare)+'</td></tr>'+
  '<tr><th>आज की अनुमानित कुल Value</th><td>'+money(totalValue)+'</td></tr>'+
  '<tr><th>Personal Share Index</th><td>'+fmtIndex(indexValue)+'</td></tr>'+
  '<tr><th>Duty / Work Records</th><td>'+((md.works||[]).length)+'</td></tr>'+
  '</tbody></table></div>';
- $('memberProfileInfo').innerHTML=[profileItem('पूरा नाम',p.name),profileItem('मोबाइल',p.phone),profileItem('पता',p.address),profileItem('सदस्य प्रकार',p.type),profileItem('Join Date',niceDate(p.joinDate)),profileItem('Investment / Capital',money(investment)),profileItem('Share Units',shareUnits.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:6})),profileItem('Current Unit Rate',money(unitPrice)),profileItem('Estimated Share Value',money(shareUnits*unitPrice))].join('');
+ $('memberProfileInfo').innerHTML=[profileItem('पूरा नाम',p.name),profileItem('मोबाइल',p.phone),profileItem('पता',p.address),profileItem('सदस्य प्रकार',p.type),profileItem('Join Date',niceDate(p.joinDate)),profileItem('Investment / Capital',money(investment)),profileItem('Share Units',shareUnits.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:6})),profileItem('Current Unit Rate',fmtUnitRate(unitPrice)),profileItem('Estimated Share Value',money(shareUnits*unitPrice))].join('');
  const works=md.works||[],entries=md.entries||[];
  const records=[...entries.map(x=>({date:x.date,title:x.type==='Income'?'आय':x.type==='Expense'?'खर्च':(x.type||'Account'),detail:(x.business||'Company')+' · '+(x.desc||x.description||x.party||'विवरण दर्ज नहीं'),amount:Number(x.amount)||0})),...works.map(x=>({date:x.date||x.dutyDate,title:'Duty / Work',detail:(x.business||'')+' · '+(x.type||'Work')+' · '+(x.hours||0)+' घंटे',amount:Number(x.amount)||0}))].sort((a,b)=>String(b.date).localeCompare(String(a.date)));
  $('memberActivityInfo').innerHTML=records.length?records.map(x=>'<article class="member-record"><b>'+esc(x.title)+' · '+money(x.amount)+'</b><small>'+esc(niceDate(x.date))+' · '+esc(x.detail)+'</small></article>').join(''):'<p class="muted">अभी कोई हिसाब रिकॉर्ड उपलब्ध नहीं है।</p>';
