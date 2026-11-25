@@ -436,31 +436,30 @@ body{width:100%;overflow-x:hidden}
  #portal>.member-hero>div:nth-child(2)>h2#memberName{font-size:clamp(10px,3.4vw,12px)!important;letter-spacing:-.55px!important}
 }
 
-/* Give Update App and Logout buttons a little more room without header overflow */
-#portal>.member-hero>div:last-child{flex-basis:124px!important;width:124px!important;gap:6px!important}
-#portal>.member-hero>div:last-child .btn{min-height:34px!important;height:34px!important;padding:8px 6px!important;font-size:10px!important;line-height:1.1!important}
+/* Header action buttons: one single row below member identity */
+#portal>.member-hero>.member-hero-actions{
+ width:100%!important;flex:0 0 100%!important;min-width:0!important;
+ display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ flex-direction:initial!important;align-items:stretch!important;gap:6px!important;
+ margin-top:8px!important;box-sizing:border-box!important
+}
+#portal>.member-hero>.member-hero-actions>#memberUpdateBtn,
+#portal>.member-hero>.member-hero-actions>.member-menu,
+#portal>.member-hero>.member-hero-actions>#logoutBtn{
+ width:100%!important;min-width:0!important;max-width:100%!important;
+ box-sizing:border-box!important;white-space:nowrap!important;
+ font-size:clamp(9px,2.8vw,12px)!important;padding:8px 2px!important;
+ min-height:36px!important;display:flex!important;align-items:center!important;justify-content:center!important
+}
+#portal>.member-hero>.member-hero-actions>.member-menu{display:block!important}
+#portal>.member-hero>.member-hero-actions>.member-menu>summary{
+ min-height:36px!important;padding:8px 2px!important;display:flex!important;
+ align-items:center!important;justify-content:center!important;font-size:inherit!important
+}
+#portal>.member-hero>.member-hero-actions>.member-menu .member-menu-list{right:0;z-index:100}
 @media(min-width:520px){
- #portal>.member-hero>div:last-child{flex-basis:138px!important;width:138px!important}
- #portal>.member-hero>div:last-child .btn{min-height:36px!important;height:36px!important}
+ #portal>.member-hero>.member-hero-actions{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 }
-@media(max-width:360px){
- #portal>.member-hero>div:last-child{flex-basis:110px!important;width:110px!important}
- #portal>.member-hero>div:last-child .btn{min-height:32px!important;height:32px!important;font-size:9px!important;padding:7px 4px!important}
-}
-
-/* Keep Update App fully visible beside Logout on narrow phones */
-#portal>.member-hero>div:last-child{flex:0 0 166px!important;width:166px!important;min-width:0!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:6px!important}
-#portal>.member-hero>div:last-child #memberUpdateBtn{flex:1.45 1 0!important;width:auto!important;min-width:0!important;padding-inline:4px!important;font-size:10px!important;letter-spacing:-.2px!important}
-#portal>.member-hero>div:last-child #logoutBtn{flex:1 1 0!important;width:auto!important;min-width:0!important;padding-inline:4px!important;font-size:10px!important}
-@media(max-width:360px){
- #portal>.member-hero>div:last-child{flex-basis:146px!important;width:146px!important;gap:4px!important}
- #portal>.member-hero>div:last-child .btn{font-size:9px!important;padding-inline:2px!important}
-}
-@media(min-width:520px){
- #portal>.member-hero>div:last-child{flex-basis:176px!important;width:176px!important}
- #portal>.member-hero>div:last-child .btn{font-size:11px!important}
-}
-
 /* Keep SABKA HISSA · MEMBER ACCOUNT eyebrow on one line */
 #portal>.member-hero>div:nth-child(2)>small{display:block!important;width:100%!important;white-space:nowrap!important;overflow:visible!important;word-break:keep-all!important;letter-spacing:.35px!important;font-size:clamp(8px,2.25vw,11px)!important;line-height:1.15!important}
 @media(max-width:360px){#portal>.member-hero>div:nth-child(2)>small{font-size:8px!important;letter-spacing:0!important}}
