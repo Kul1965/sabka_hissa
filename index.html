@@ -526,6 +526,14 @@ body.auth-admin .dashboard-link p{margin-top:5px!important;font-size:10px!import
 /* Correct mobile modal horizontal placement: use both edges, no translate */
 @media(max-width:600px){#ef.entry-modal-open{left:10px!important;right:10px!important;width:auto!important;max-width:none!important;transform:none!important;margin-left:0!important;margin-right:0!important;top:max(8px,env(safe-area-inset-top))!important;max-height:calc(100dvh - 16px - env(safe-area-inset-bottom))!important}}
 </style>
+
+<style>
+/* Robust mobile entry modal: bounded scroll viewport above fixed bottom navigation */
+@media(max-width:600px){
+ #ef.entry-modal-open{position:fixed!important;inset:8px 10px calc(86px + env(safe-area-inset-bottom)) 10px!important;left:10px!important;right:10px!important;top:8px!important;bottom:calc(86px + env(safe-area-inset-bottom))!important;width:auto!important;height:auto!important;max-height:none!important;max-width:none!important;transform:none!important;margin:0!important;overflow-y:scroll!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-y:contain!important;touch-action:pan-y!important;}
+ #ef.entry-modal-open>p{position:sticky!important;bottom:0!important;}
+}
+</style>
 </head><body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script>
 <section id="loginGate"><div class="gate-card"><h1>🤝 SABKA HISSA</h1><p class="gate-sub">अपनो हिस्सेदारी · अपनो हिस्सा</p><div class="gate-switch"><button type="button" id="gateAdminTab" class="active" onclick="setGateMode('admin')">👑 Admin Login</button><button type="button" id="gateMemberTab" onclick="setGateMode('member')">👥 Member Login</button></div><div id="gateAdminForm"><label>Admin Email</label><input id="gateAdminEmail" type="email" autocomplete="username" placeholder="Admin email"><label>Admin Password</label><input id="gateAdminPassword" type="password" autocomplete="current-password" placeholder="Admin password"><button id="gateAdminSubmit" type="button" style="width:100%;margin-top:16px" onclick="gateAdminLogin()">Admin Login</button></div><div id="gateMemberForm" class="hide"><label>Member Username</label><input id="gateMemberUsername" type="text" autocomplete="username" placeholder="Member username"><label>Member Password</label><input id="gateMemberPassword" type="password" autocomplete="current-password" placeholder="Member password"><button id="gateMemberSubmit" type="button" style="width:100%;margin-top:16px" onclick="gateMemberLogin()">Member Login</button></div><div id="gateError" class="gate-error" role="alert"></div><button type="button" class="gate-install" id="gateInstallBtn" onclick="installApp()"><img class="install-mark" src="/sabka_hissa/icon.svg" alt=""> 📲 Install SABKA HISSA App</button><p class="gate-help">Admin र Member का लागि एउटै सुरक्षित प्रवेश पृष्ठ</p></div></section>
