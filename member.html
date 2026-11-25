@@ -640,6 +640,15 @@ body{width:100%;overflow-x:hidden}
 #portal>header.member-hero>div.member-hero-actions>details.member-menu>summary{display:flex!important;width:100%!important;height:44px!important;min-height:44px!important;margin:0!important;padding:0 1px!important;box-sizing:border-box!important;align-items:center!important;justify-content:center!important;white-space:nowrap!important;font-size:inherit!important;line-height:1!important}
 #portal>header.member-hero>div.member-hero-actions>details.member-menu .member-menu-list{position:absolute!important;right:0!important;top:calc(100% + 6px)!important;z-index:9999!important}
 @media(max-width:360px){#portal>header.member-hero{grid-template-columns:44px minmax(0,1fr)!important;padding:10px!important;column-gap:7px!important}#portal>header.member-hero>img.member-avatar{width:44px!important;height:44px!important}#portal>header.member-hero>div.member-hero-actions{gap:4px!important}#portal>header.member-hero>div.member-hero-actions>button,#portal>header.member-hero>div.member-hero-actions>details.member-menu{font-size:9px!important}}
+
+/* Member menu: allow dropdown to escape the profile card */
+#portal>header.member-hero{overflow:visible!important;z-index:40!important}
+#portal>header.member-hero>.member-hero-actions{position:relative!important;z-index:60!important;overflow:visible!important}
+#portal .member-hero-actions details.member-menu{position:relative!important;z-index:80!important;overflow:visible!important}
+#portal .member-hero-actions details.member-menu[open]{z-index:1000!important}
+#portal .member-hero-actions details.member-menu .member-menu-list{display:none;position:absolute!important;top:calc(100% + 8px)!important;right:0!important;left:auto!important;min-width:210px!important;width:max-content!important;max-width:min(280px,84vw)!important;z-index:2000!important;pointer-events:auto!important}
+#portal .member-hero-actions details.member-menu[open] .member-menu-list{display:grid!important}
+#portal .member-hero-actions details.member-menu>summary{cursor:pointer!important;position:relative!important;z-index:2001!important;touch-action:manipulation!important}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./member-config.js"></script></head>
 <body><main class="wrap member-portal-wrap"><header class="member-slogan-bar"><span class="slogan-side slogan-left">एकता • विश्वास</span><span>हाम्रो साथ</span><b>🤝</b><span>तपाईंको हात</span><span class="slogan-side slogan-right">समृद्धि • साझेदारी</span></header>
@@ -718,6 +727,9 @@ async function sendMemberMessage(){const body=$('memberMessage').value.trim(),fi
 $('loginBtn').onclick=async()=>{const b=$('loginBtn');b.disabled=true;try{if(!client)initClient();const username=$('username').value.trim().toLowerCase();if(!/^[a-z0-9][a-z0-9._-]{2,29}$/.test(username))throw new Error('सही Username लिख्नुहोस्।');const {data,error}=await client.auth.signInWithPassword({email:username+'@members.sabka-hissa.invalid',password:$('password').value});if(error)throw error;await loadPortal(data.user)}catch(e){showError(e.message||'Login असफल भयो।')}finally{b.disabled=false}};
 $('logoutBtn').onclick=async()=>{await client.auth.signOut();currentMember=null;currentUser=null;$('portal').classList.add('hidden');$('login').classList.remove('hidden');$('password').value=''};
 function memberMenuGo(target,button){showMemberTab(target);const menu=button?.closest('details');if(menu)menu.open=false}
+// Reliable touch toggle for the member dropdown; close when tapping outside.
+document.querySelectorAll('#portal .member-menu>summary').forEach(summary=>{summary.addEventListener('click',ev=>{ev.preventDefault();ev.stopPropagation();const menu=summary.closest('details');const shouldOpen=!menu.open;document.querySelectorAll('#portal .member-menu[open]').forEach(x=>x.open=false);menu.open=shouldOpen;});});
+document.addEventListener('click',ev=>{if(!ev.target.closest('#portal .member-menu'))document.querySelectorAll('#portal .member-menu[open]').forEach(x=>x.open=false);});
 function showMemberTab(target){document.querySelectorAll('.member-section,#memberChat').forEach(x=>x.classList.add('hidden'));$(target).classList.remove('hidden');document.querySelectorAll('.member-bottom-nav [data-target]').forEach(x=>x.classList.toggle('active',x.dataset.target===target));try{sessionStorage.setItem('sabkaHissaMemberPageV1',target)}catch(e){}if(target==='memberChat')loadMemberMessages().catch(e=>$('chatMsg').textContent=e.message);window.scrollTo(0,0)}
 document.querySelectorAll('.member-bottom-nav [data-target]').forEach(btn=>btn.addEventListener('click',()=>showMemberTab(btn.dataset.target)));
 $('refreshMemberMessages').onclick=()=>loadMemberMessages().catch(e=>$('chatMsg').textContent=e.message);
