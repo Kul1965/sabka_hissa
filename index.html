@@ -441,7 +441,25 @@ body:not(.auth-admin)>.head,body:not(.auth-admin)>.wrap,body:not(.auth-admin)>.b
 #messages .chat-sender-avatar img{width:100%!important;height:100%!important;object-fit:cover!important}
 #messages .chat-line.from-admin .chat-bubble{margin-left:auto!important;margin-right:0!important}
 #messages .chat-line.from-member .chat-bubble{margin-left:0!important;margin-right:auto!important}
-\n/* Accounts entry modal backdrop */\n#entryFormBackdrop{position:fixed;inset:0;background:rgba(0,12,8,.68);backdrop-filter:blur(3px);z-index:99;display:none}\n#ef.entry-modal-open{position:fixed!important;display:block!important;visibility:visible!important;z-index:100;left:50%;top:50%;transform:translate(-50%,-50%);width:min(940px,calc(100vw - 24px));max-height:calc(100dvh - 32px);overflow:auto;margin:0!important;box-shadow:0 22px 70px #0009;border:1px solid var(--gold)}\n@media(max-width:600px){#ef.entry-modal-open{width:calc(100vw - 20px);max-height:calc(100dvh - 24px);padding:14px!important;border-radius:16px}#ef.entry-modal-open .form{gap:10px}}\n</style><link rel="apple-touch-icon" sizes="180x180" href="/sabka_hissa/icon-apple.png">
+\n/* Accounts entry modal backdrop */\n#entryFormBackdrop{position:fixed;inset:0;background:rgba(0,12,8,.68);backdrop-filter:blur(3px);z-index:99;display:none}\n#ef.entry-modal-open{position:fixed!important;display:block!important;visibility:visible!important;z-index:100;left:50%;top:50%;transform:translate(-50%,-50%);width:min(940px,calc(100vw - 24px));max-height:calc(100dvh - 32px);overflow:auto;margin:0!important;box-shadow:0 22px 70px #0009;border:1px solid var(--gold)}\n@media(max-width:600px){#ef.entry-modal-open{width:calc(100vw - 20px);max-height:calc(100dvh - 24px);padding:14px!important;border-radius:16px}#ef.entry-modal-open .form{gap:10px}}\n
+/* Mobile Accounts table: readable columns and compact action buttons */
+#er .scroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+#er table{width:100%;min-width:700px}
+#er td:last-child{white-space:normal;min-width:230px}
+#er td:last-child .btn{display:inline-flex;align-items:center;justify-content:center;margin:3px 4px 3px 0;min-height:38px;padding:7px 10px}
+@media(max-width:600px){
+ #er{padding:10px!important}
+ #er .scroll{overflow:visible}
+ #er table{min-width:0;table-layout:fixed;font-size:12px}
+ #er th,#er td{padding:7px 5px;font-size:11px;overflow-wrap:anywhere;word-break:break-word}
+ #er th:nth-child(2),#er td:nth-child(2),#er th:nth-child(3),#er td:nth-child(3),#er th:nth-child(4),#er td:nth-child(4),#er th:nth-child(5),#er td:nth-child(5),#er th:nth-child(8),#er td:nth-child(8){display:none}
+ #er th:nth-child(1),#er td:nth-child(1){width:24%}
+ #er th:nth-child(6),#er td:nth-child(6){width:24%;white-space:nowrap}
+ #er th:nth-child(7),#er td:nth-child(7){width:23%}
+ #er th:last-child,#er td:last-child{width:29%;min-width:0}
+ #er td:last-child .btn{display:inline-flex;margin:2px 2px 3px 0;min-height:32px;padding:5px 7px;font-size:10px;white-space:normal}
+}
+</style><link rel="apple-touch-icon" sizes="180x180" href="/sabka_hissa/icon-apple.png">
 <style>
 /* Sketch-matched header layout: brand, admin, clock/date, cloud/update/menu */
 .head{display:flex!important;flex-direction:column!important;gap:6px!important;padding:7px 10px 9px!important}
